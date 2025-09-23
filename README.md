@@ -82,7 +82,7 @@ classDiagram
     }
 
     Pokemon "*" --> "*" PokemonMoves
-    Pokemon "*" --> "*" Locations
+    Pokemon "*" --> "*" Location
 ```
 
 #### System Architecture
