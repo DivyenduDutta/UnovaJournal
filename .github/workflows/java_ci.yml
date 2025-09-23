@@ -14,8 +14,6 @@ jobs:
         image: mysql:8
         env:
           MYSQL_DATABASE: unova_journal
-          MYSQL_USER: root
-          MYSQL_PASSWORD: divyendu
           MYSQL_ROOT_PASSWORD: divyendu
         ports:
           - 3306:3306
