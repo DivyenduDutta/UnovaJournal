@@ -31,3 +31,84 @@ mvnw spotbugs:check
 ```bash
 mvnw pmd:check
 ```
+
+### Documentation
+
+#### UML Diagram
+
+```mermaid
+classDiagram
+    class Pokemon {
+      -int Id
+      -string Name 
+      -string Type1
+      -string Type2
+      -int Level
+      -int HP
+      -int Attack
+      -int Defense
+      -int Speed
+      -int SpecialAttack
+      -int SpecialDefense
+    }
+
+    class Move {
+      -int Id
+      -string Name
+      -string Type
+      -string Category
+      -int Power
+      -int Accuracy
+      -int PP
+    }
+
+    class PokemonMoves {
+      -int PokemonId
+      -int MoveId
+      -int LevelLearned
+    }
+    
+    class Location {
+      -int Id
+      -string Name
+      -string Type
+    }
+    
+    class CapturedPokemons {
+      -int Id
+      -int PokemonId
+      -int LocationId
+      -DateTime CapturedOn
+    }
+
+    Pokemon "*" --> "*" PokemonMoves
+    Pokemon "*" --> "*" Locations
+```
+
+#### System Architecture
+
+```mermaid
+flowchart TD
+    subgraph API[SpringWeb APIs]
+        A[REST Endpoints]
+    end
+
+    subgraph DD[SpringData]
+        B[Repositories]
+    end
+
+    subgraph DB[MySQL Database]
+        D[(Pokemon Table)]
+        E[(Move Table)]
+        F[(PokemonMoves Table)]
+        G[(Location Table)]
+        H[(CapturedPokemons Table)]
+    end
+
+    A --> B
+    B --> D
+    B --> E
+    B --> F
+    B --> G
+    B --> H
+```
