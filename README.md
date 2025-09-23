@@ -81,8 +81,10 @@ classDiagram
       -DateTime CapturedOn
     }
 
-    Pokemon "*" --> "*" PokemonMoves
-    Pokemon "*" --> "*" Location
+    Pokemon "1" --> "*" PokemonMoves
+    Move "1" --> "*" PokemonMoves
+    Pokemon "1" --> "*" CapturedPokemons
+    Location "1" --> "*" CapturedPokemons
 ```
 
 #### System Architecture
