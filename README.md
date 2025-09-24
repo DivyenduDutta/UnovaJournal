@@ -65,17 +65,16 @@ classDiagram
     class PokemonMoves {
       -int PokemonId
       -int MoveId
-      -int LevelLearned
+      -int LevelLearnedAt
     }
     
     class Location {
       -int Id
       -string Name
-      -string Type
+      -LocationType Type
     }
     
     class CapturedPokemons {
-      -int Id
       -int PokemonId
       -int LocationId
       -DateTime CapturedOn
