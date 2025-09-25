@@ -7,10 +7,13 @@ import java.util.Objects;
 @Embeddable
 public class CapturedPokemonsId implements Serializable {
 
-  private int pokemonId;
-  private int locationId;
+  private final int pokemonId;
+  private final int locationId;
 
-  public CapturedPokemonsId() {}
+  public CapturedPokemonsId() {
+    this.pokemonId = 0;
+    this.locationId = 0;
+  }
 
   public CapturedPokemonsId(int pokemonId, int locationId) {
     this.pokemonId = pokemonId;
@@ -38,15 +41,7 @@ public class CapturedPokemonsId implements Serializable {
     return pokemonId;
   }
 
-  public void setPokemonId(int pokemonId) {
-    this.pokemonId = pokemonId;
-  }
-
   public int getLocationId() {
     return locationId;
-  }
-
-  public void setLocationId(int locationId) {
-    this.locationId = locationId;
   }
 }

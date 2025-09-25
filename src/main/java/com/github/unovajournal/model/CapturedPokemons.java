@@ -1,5 +1,6 @@
 package com.github.unovajournal.model;
 
+import edu.umd.cs.findbugs.annotations.SuppressFBWarnings;
 import jakarta.persistence.*;
 import java.time.LocalDateTime;
 
@@ -56,10 +57,16 @@ public class CapturedPokemons {
     this.capturedOn = capturedOn;
   }
 
+  @SuppressFBWarnings(
+      value = "EI_EXPOSE_REP",
+      justification = "The Pokemon object is mutable but this is acceptable in this context")
   public Pokemon getPokemon() {
     return pokemon;
   }
 
+  @SuppressFBWarnings(
+      value = "EI_EXPOSE_REP",
+      justification = "The Location object is mutable but this is acceptable in this context")
   public Location getLocation() {
     return location;
   }

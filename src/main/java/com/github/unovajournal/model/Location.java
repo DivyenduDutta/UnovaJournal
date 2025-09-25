@@ -1,6 +1,7 @@
 package com.github.unovajournal.model;
 
 import com.github.unovajournal.enums.LocationType;
+import edu.umd.cs.findbugs.annotations.SuppressFBWarnings;
 import jakarta.persistence.*;
 import java.util.ArrayList;
 import java.util.List;
@@ -56,9 +57,12 @@ public class Location {
   }
 
   public List<CapturedPokemons> getCapturedPokemons() {
-    return capturedPokemons;
+    return capturedPokemons == null ? null : List.copyOf(capturedPokemons);
   }
 
+  @SuppressFBWarnings(
+      value = "EI_EXPOSE_REP2",
+      justification = "The CapturedPokemons List is mutable but this is acceptable in this context")
   public void setCapturedPokemons(List<CapturedPokemons> capturedPokemons) {
     this.capturedPokemons = capturedPokemons;
   }

@@ -1,5 +1,6 @@
 package com.github.unovajournal.model;
 
+import edu.umd.cs.findbugs.annotations.SuppressFBWarnings;
 import jakarta.persistence.*;
 import java.util.ArrayList;
 import java.util.List;
@@ -74,9 +75,12 @@ public class Pokemon {
   }
 
   public List<PokemonMoves> getMoves() {
-    return moves;
+    return moves == null ? null : List.copyOf(moves);
   }
 
+  @SuppressFBWarnings(
+      value = "EI_EXPOSE_REP2",
+      justification = "The PokemonMoves List is mutable but this is acceptable in this context")
   public void setMoves(List<PokemonMoves> moves) {
     this.moves = moves;
   }
@@ -162,9 +166,12 @@ public class Pokemon {
   }
 
   public List<CapturedPokemons> getCapturedPokemonLocations() {
-    return capturedPokemonLocations;
+    return capturedPokemonLocations == null ? null : List.copyOf(capturedPokemonLocations);
   }
 
+  @SuppressFBWarnings(
+      value = "EI_EXPOSE_REP2",
+      justification = "The CapturedPokemons List is mutable but this is acceptable in this context")
   public void setCapturedPokemonLocations(List<CapturedPokemons> capturedPokemonLocations) {
     this.capturedPokemonLocations = capturedPokemonLocations;
   }
