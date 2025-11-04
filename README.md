@@ -32,6 +32,12 @@ mvnw spotbugs:check
 mvnw pmd:check
 ```
 
+#### Execution Instructions
+
+Run `mvnw clean package` to build the project and generate the jar.
+
+Run `java -jar target/<name of built jar>` to start the REST application.
+
 ### Documentation
 
 #### UML Diagram
